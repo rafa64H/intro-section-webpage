@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+<body>
+  <!--Header-->
+  <header>
+    <div class="logo-navbtn">
+      <img src="images/logo.svg" alt="Our company logo" class="logo">
+      <img src="images/icon-menu.svg" alt="open navigation bar" class="open-close-nav-btn">
+    </div>
+
+    <nav>
+      <ul class="nav__options">
+        <li class="nav__option">Features <img src="images/icon-arrow-down.svg" class="drop-arrow">
+          <ul class="dropdown">       <!--Dropdown-->
+            <li class="drop__item">
+              <img src="images/icon-todo.svg"><a href="#" class="drop__link">Todo list</a> 
+            </li>
+
+            <li class="drop__item">
+              <img src="images/icon-calendar.svg"><a href="#" class="drop__link">Calendar</a> 
+            </li>
+
+            <li class="drop__item">
+              <img src="images/icon-reminders.svg"><a href="#" class="drop__link">Reminders</a> 
+            </li>
+
+            <li class="drop__item">
+              <img src="images/icon-planning.svg"><a href="#" class="drop__link">Planning</a> 
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav__option">Company <img src="images/icon-arrow-down.svg" class="drop-arrow"> 
+          <ul class="dropdown">     <!--Dropdown-->
+            <li class="drop__item">
+              <a href="#" class="drop__link">History</a>
+            </li>
+
+            <li class="drop__item">
+              <a href="#" class="drop__link">Our team</a>
+            </li>
+
+            <li class="drop__item">
+              <a href="#" class="drop__link">Blog</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav__option">
+          <a href="#" class="nav__link">Careers</a>
+        </li>
+
+        <li class="nav__option">
+          <a href="#" class="nav__link">About</a>
+        </li>
+
+        <li class="nav__option">
+          <a href="#" class="nav__link">Login</a>
+        </li>
+
+        <li class="nav__option">
+          <a href="#" class="nav__link">Register</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!--Header END-->
+
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">
+      Make remote work
+      </h1>
+
+      <p class="hero__description">
+        Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.
+      </p>
+
+      <a href="" class="hero__btn">Learn more</a>
+
+      <div class="hero__sponsors">
+        <img src="images/client-databiz.svg" alt="Databiz company logo" class="sponsors__img">
+        <img src="images/client-audiophile.svg" alt="audiophile company logo" class="sponsors__img">
+        <img src="images/client-meet.svg" alt="meet company logo" class="sponsors__img">
+        <img src="images/client-maker.svg" alt="maker company logo" class="sponsors__img">
+      </div>
+    </div>
+
+    <img src="images/image-hero-mobile.png" class="hero__img" alt="An expert programmer">
+  </section>
+  
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+</body>
+</html>

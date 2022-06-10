@@ -1,0 +1,14 @@
+:root{
+	--almostWhite: hsl(0, 0%, 98%);
+	--mediumGray: hsl(0, 0%, 41%);
+	--almostBlack: hsl(0, 0%, 8%);
+}
+
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	max-width: 100%;
+	list-style: none;
+	text-decoration: none;
+}
