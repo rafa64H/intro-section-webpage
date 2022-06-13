@@ -42,26 +42,37 @@ First mobile design
 	display: flex;
 	justify-content: space-between;
 
+	position: relative;
+	z-index: 5;
+
 	padding: clamp(0.8em, calc(0.8em + 1vw), 2em);
 }
 
+.logo{
+}
+
 .o-close-nav-btn{
+
 	cursor: pointer;
 }
 
 /*2.2 Navigation bar*/
 nav{
 	position: fixed;
+	z-index: 4;
 
 	background-color: #FFF;
-	width: 100%;
+	width: 60%;
+	height: 100%;
+	padding-top: 4em; 
 
 	font-size: var(--fontSizeLinks);
 
-	transform: translateX(100%);
+	top: 0;
+	right: -100%;
 }
 
-/*2.3 "Status" of opened or closed navigation bar*/
+/*2.3 "Status" of opened or closed navigation bar at the beginnind doesn't have value*/
 [data-toggle-status="true"]{
 	animation-name: open-nav;
 	animation-duration: 250ms;
@@ -92,6 +103,10 @@ nav{
 	cursor: pointer;
 }
 
+.nav__option:hover{
+	color: var(--almostBlack)
+}
+
 .nav__link{
 	display: inline-block;
 
@@ -100,8 +115,11 @@ nav{
 	transition: all 150ms;
 }
 
+.nav__link:hover{
+	color: var(--almostBlack)
+}
+
 .drop__link{
-	display: inline-block;
 
 	padding: clamp(0.4em, calc(0.4em + 1vw), 1em);
 
@@ -109,36 +127,17 @@ nav{
 
 	transition: all 150ms;
 }
-
-.nav__option:hover{
-	color: var(--almostBlack)
-}
-
-.nav__link:hover{
-	color: var(--almostBlack)
-}
 	
 .drop__link:hover{
 	color: var(--almostBlack)
 }
 
 .nav__option--regist{
-	margin: 0 auto;
-}
-
-.nav__option--log{
-	margin: 0 auto;
-}
-
-.nav__link--log{
-	margin: 0.5em;
-	padding: 0.5em 0.8em;
+	margin: 0.5em auto;
 }
 
 .nav__link--regist{
-	margin: 0.5em;
-	padding: 0.6em 5em;
-
+	padding: 0.5em 2.5em;
 	border: 1px solid var(--mediumGray);
 
 	border-radius: 15px;
@@ -148,20 +147,103 @@ nav{
 	border-color: var(--almostBlack);
 }
 
+.nav__option--log{
+	margin: 0.5em auto;
+}
+
+.nav__link--log{
+	padding: 0.5em 0.8em;
+}
+
+.dropdown{
+}
+
+/*2.4 Dropdown "Status" if it is active or not, at the beginning doesnt have value*/
+[data-dropdown-active="true"]{
+	animation-name: open-drop;
+	animation-duration: 10s;
+	animation-fill-mode: forwards;
+}
+
+[data-dropdown-active="false"]{
+	animation-name: close-drop;
+	animation-duration: 10s;
+	animation-fill-mode: forwards;
+}
+
+#overlay{
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.5);
+
+	position: fixed;
+	z-index: 3;
+	top: 0;
+
+	opacity: 0;
+}
+
+[data-overlay-active="true"]{
+	animation-name: overlay-appear;
+	animation-duration: 200ms;
+	animation-fill-mode: forwards;
+}
+
+[data-overlay-active="false"]{
+	animation-name: overlay-vanish;
+	animation-duration: 200ms;
+	animation-fill-mode: forwards;
+}
+
 @keyframes open-nav{
 	from{
 	}
 	to{
-		transform: translateX(0%);
+		right: 0%;
 	}
 }
 
 @keyframes close-nav{
 	from{
-		transform: translateX(0%);
+		right: 0%;
+	}
+	to{
+		right: -100%;
+	}
+}
+
+@keyframes open-drop{
+	from{
 
 	}
 	to{
-		transform: translateX(100%);
+		height: 100%;
+	}
+}
+
+@keyframes close-drop{
+	from{
+		height: 100%;
+	}
+	to{
+		height: 0;
+	}
+}
+
+@keyframes overlay-appear{
+	from{
+
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+@keyframes overlay-vanish{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
 	}
 }

@@ -17,6 +17,7 @@
 <body>
   <!--Header-->
   <header>
+
     <div class="logo-navbtn-cont">
       <img src="images/logo.svg" alt="Our company logo" class="logo">
       <img src="images/icon-menu.svg" alt="open navigation bar" class="o-close-nav-btn">
@@ -25,7 +26,9 @@
     <nav data-toggle-status="">
       <ul class="nav__options">
         <li class="nav__option">Features <img src="images/icon-arrow-down.svg" class="drop-arrow">
-          <ul class="dropdown">       <!--Dropdown-->
+
+          <ul class="dropdown" data-drop-active="">       <!--Dropdown-->
+            
             <li class="drop__item">
               <img src="images/icon-todo.svg"><a href="#" class="drop__link">Todo list</a> 
             </li>
@@ -43,10 +46,13 @@
             </li>
 
           </ul>
+
         </li>
 
         <li class="nav__option">Company <img src="images/icon-arrow-down.svg" class="drop-arrow"> 
-          <ul class="dropdown">     <!--Dropdown-->
+
+          <ul class="dropdown" data-drop-active="">     <!--Dropdown-->
+            
             <li class="drop__item">
               <a href="#" class="drop__link">History</a>
             </li>
@@ -60,6 +66,7 @@
             </li>
 
           </ul>
+
         </li>
 
         <li class="nav__option">
@@ -79,6 +86,8 @@
         </li>
       </ul>
     </nav>
+
+    <div id="overlay" data-overlay-active=""></div> <!--Black background at openning the nav bar in mobile devices-->
   </header>
   <!--Header END-->
 
