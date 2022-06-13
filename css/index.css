@@ -1,7 +1,28 @@
+/*
+First mobile design
+
+	Table of contents
+
+		1.Root and universal selector
+		
+		2.Header(Navigation bar and logo)
+
+		3. Body
+
+		4.Footer
+
+		5. Animation keyframes
+
+		6. Media queries
+*/
+
+/*1.Root and universal selector*/
 :root{
 	--almostWhite: hsl(0, 0%, 98%);
 	--mediumGray: hsl(0, 0%, 41%);
 	--almostBlack: hsl(0, 0%, 8%);
+
+	--fontSizeLinks: 1rem;
 }
 
 *{
@@ -11,4 +32,136 @@
 	max-width: 100%;
 	list-style: none;
 	text-decoration: none;
+}
+/*1.Root and universal selector END*/
+
+/*2.Header(Navigation bar and logo)*/
+
+/*2.1 Container of the logo, the logo and the open and close nav button*/
+.logo-navbtn-cont{
+	display: flex;
+	justify-content: space-between;
+
+	padding: clamp(0.8em, calc(0.8em + 1vw), 2em);
+}
+
+.o-close-nav-btn{
+	cursor: pointer;
+}
+
+/*2.2 Navigation bar*/
+nav{
+	position: fixed;
+
+	background-color: #FFF;
+	width: 100%;
+
+	font-size: var(--fontSizeLinks);
+
+	transform: translateX(100%);
+}
+
+/*2.3 "Status" of opened or closed navigation bar*/
+[data-toggle-status="true"]{
+	animation-name: open-nav;
+	animation-duration: 250ms;
+	animation-fill-mode: forwards;
+}
+
+[data-toggle-status="false"]{
+	animation-name: close-nav;
+	animation-duration: 250ms;
+	animation-fill-mode: forwards;
+}
+
+.nav__options{
+	display: flex;
+	flex-direction: column;
+
+	padding: clamp(0.5em, calc(0.5em + 1vw), 1.1em);
+}
+
+.nav__option{
+
+	margin: clamp(0.2em, calc(0.3em + 1vw), 1em);
+
+	color: var(--mediumGray);
+
+	transition: all 150ms;
+
+	cursor: pointer;
+}
+
+.nav__link{
+	display: inline-block;
+
+	color: var(--mediumGray);
+
+	transition: all 150ms;
+}
+
+.drop__link{
+	display: inline-block;
+
+	padding: clamp(0.4em, calc(0.4em + 1vw), 1em);
+
+	color: var(--mediumGray);
+
+	transition: all 150ms;
+}
+
+.nav__option:hover{
+	color: var(--almostBlack)
+}
+
+.nav__link:hover{
+	color: var(--almostBlack)
+}
+	
+.drop__link:hover{
+	color: var(--almostBlack)
+}
+
+.nav__option--regist{
+	margin: 0 auto;
+}
+
+.nav__option--log{
+	margin: 0 auto;
+}
+
+.nav__link--log{
+	margin: 0.5em;
+	padding: 0.5em 0.8em;
+}
+
+.nav__link--regist{
+	margin: 0.5em;
+	padding: 0.6em 5em;
+
+	border: 1px solid var(--mediumGray);
+
+	border-radius: 15px;
+}
+
+.nav__link--regist:hover{
+	border-color: var(--almostBlack);
+}
+
+@keyframes open-nav{
+	from{
+	}
+	to{
+		transform: translateX(0%);
+	}
+}
+
+@keyframes close-nav{
+	from{
+		transform: translateX(0%);
+
+	}
+	to{
+		transform: translateX(100%);
+	}
 }
