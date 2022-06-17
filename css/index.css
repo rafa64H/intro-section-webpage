@@ -73,13 +73,13 @@ nav{
 }
 
 /*2.3 "Status" of opened or closed navigation bar at the beginnind doesn't have value*/
-[data-toggle-status="true"]{
+[data-nav-toggle-status="true"]{
 	animation-name: open-nav;
 	animation-duration: 250ms;
 	animation-fill-mode: forwards;
 }
 
-[data-toggle-status="false"]{
+[data-nav-toggle-status="false"]{
 	animation-name: close-nav;
 	animation-duration: 250ms;
 	animation-fill-mode: forwards;
@@ -155,20 +155,43 @@ nav{
 	padding: 0.5em 0.8em;
 }
 
+[data-drop-arrow-active = "true"]{
+	animation-name: drop-arrow-open;
+	animation-duration: 200ms;
+	animation-fill-mode: forwards;
+}
+
+[data-drop-arrow-active = "false"]{
+	animation-name: drop-arrow-close;
+	animation-duration: 200ms;
+	animation-fill-mode: forwards;
+}
+
 .dropdown{
+	position: absolute;
+
+	opacity: 0;
+	pointer-events: none;
 }
 
 /*2.4 Dropdown "Status" if it is active or not, at the beginning doesnt have value*/
-[data-dropdown-active="true"]{
+[data-drop-active="true"]{
 	animation-name: open-drop;
-	animation-duration: 10s;
+	animation-duration: 200ms;
 	animation-fill-mode: forwards;
+	pointer-events: auto;
 }
 
-[data-dropdown-active="false"]{
+[data-drop-active="false"]{
 	animation-name: close-drop;
-	animation-duration: 10s;
+	animation-duration: 200ms;
 	animation-fill-mode: forwards;
+	pointer-events: none;
+}
+
+.drop__link{
+	display: inline-block;
+	margin-top: 0.1em;
 }
 
 #overlay{
@@ -181,18 +204,21 @@ nav{
 	top: 0;
 
 	opacity: 0;
+	pointer-events: none;
 }
 
 [data-overlay-active="true"]{
 	animation-name: overlay-appear;
 	animation-duration: 200ms;
 	animation-fill-mode: forwards;
+	pointer-events: all !important;
 }
 
 [data-overlay-active="false"]{
 	animation-name: overlay-vanish;
 	animation-duration: 200ms;
 	animation-fill-mode: forwards;
+	pointer-events: none;
 }
 
 @keyframes open-nav{
@@ -212,21 +238,42 @@ nav{
 	}
 }
 
+@keyframes drop-arrow-open{
+	from{
+
+	}
+	to{
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes drop-arrow-close{
+	from{
+		transform: rotate(180deg);
+	}
+	to{
+		transform: rotate(0deg);
+	}
+}
+
 @keyframes open-drop{
 	from{
 
 	}
 	to{
-		height: 100%;
+		position: relative;
+		opacity: 1;
 	}
 }
 
 @keyframes close-drop{
 	from{
-		height: 100%;
+		position: relative;
+		opacity: 1;
 	}
 	to{
-		height: 0;
+		position: absolute;
+		opacity: 0;
 	}
 }
 
