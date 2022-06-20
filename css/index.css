@@ -37,7 +37,7 @@ First mobile design
 
 /*2.Header(Navigation bar and logo)*/
 
-/*2.1 Container of the logo, the logo and the open and close nav button*/
+/*-----2.1 Container of the logo, the logo and the open and close nav button-----*/
 .logo-navbtn-cont{
 	display: flex;
 	justify-content: space-between;
@@ -52,16 +52,15 @@ First mobile design
 }
 
 .o-close-nav-btn{
-
 	cursor: pointer;
 }
 
-/*2.2 Navigation bar*/
+/*-----2.2 Navigation bar container-----*/
 nav{
 	position: fixed;
 	z-index: 4;
 
-	background-color: #FFF;
+	background-color: white;
 	width: 60%;
 	height: 100%;
 	padding-top: 4em; 
@@ -72,7 +71,7 @@ nav{
 	right: -100%;
 }
 
-/*2.3 "Status" of opened or closed navigation bar at the beginnind doesn't have value*/
+/*-----2.3 "Status" of opened or closed navigation bar at the beginnind doesn't have value-----*/
 [data-nav-toggle-status="true"]{
 	animation-name: open-nav;
 	animation-duration: 250ms;
@@ -85,6 +84,7 @@ nav{
 	animation-fill-mode: forwards;
 }
 
+/*-----2.4 Navigation bar ul list-----*/
 .nav__options{
 	display: flex;
 	flex-direction: column;
@@ -92,9 +92,10 @@ nav{
 	padding: clamp(0.5em, calc(0.5em + 1vw), 1.1em);
 }
 
+/*-----2.5 Navigation li from nav__options ul-----*/
 .nav__option{
 
-	margin: clamp(0.2em, calc(0.3em + 1vw), 1em);
+	margin: clamp(0.2em, calc(0.3em + 1vw), 0.8em);
 
 	color: var(--mediumGray);
 
@@ -107,6 +108,7 @@ nav{
 	color: var(--almostBlack)
 }
 
+/*-----2.5 <a> tags from nav__option-----*/
 .nav__link{
 	display: inline-block;
 
@@ -119,19 +121,7 @@ nav{
 	color: var(--almostBlack)
 }
 
-.drop__link{
-
-	padding: clamp(0.4em, calc(0.4em + 1vw), 1em);
-
-	color: var(--mediumGray);
-
-	transition: all 150ms;
-}
-	
-.drop__link:hover{
-	color: var(--almostBlack)
-}
-
+/*-----2.6 Nav__option of register button-----*/
 .nav__option--regist{
 	margin: 0.5em auto;
 }
@@ -147,6 +137,7 @@ nav{
 	border-color: var(--almostBlack);
 }
 
+/*-----2.7 Nav__option of login button-----*/
 .nav__option--log{
 	margin: 0.5em auto;
 }
@@ -155,6 +146,7 @@ nav{
 	padding: 0.5em 0.8em;
 }
 
+/*-----2.8 Toggle to activate animations of the arrow icon on nav__option with dropdown inside of them-----*/
 [data-drop-arrow-active = "true"]{
 	animation-name: drop-arrow-open;
 	animation-duration: 200ms;
@@ -167,14 +159,17 @@ nav{
 	animation-fill-mode: forwards;
 }
 
+/*-----2.9 dropdown ul-----*/
 .dropdown{
 	position: absolute;
+
+	background-color: white;
 
 	opacity: 0;
 	pointer-events: none;
 }
 
-/*2.4 Dropdown "Status" if it is active or not, at the beginning doesnt have value*/
+/*-----2.10 Dropdown "Status" if it is active or not, at the beginning doesnt have value-----*/
 [data-drop-active="true"]{
 	animation-name: open-drop;
 	animation-duration: 200ms;
@@ -189,11 +184,23 @@ nav{
 	pointer-events: none;
 }
 
+/*-----2.11 <a> tag inside of drop__item li-----*/
 .drop__link{
 	display: inline-block;
+	
 	margin-top: 0.1em;
+	padding: clamp(0.2em, calc(0.2em + 1vw), 0.5em);
+
+	color: var(--mediumGray);
+
+	transition: all 150ms;
+}
+	
+.drop__link:hover{
+	color: var(--almostBlack)
 }
 
+/*-----2.12 Black transparent color when opening navigation bar in phones-----*/
 #overlay{
 	width: 100vw;
 	height: 100vh;
@@ -204,14 +211,15 @@ nav{
 	top: 0;
 
 	opacity: 0;
-	pointer-events: none;
+	pointer-events: none; /*To be able to click and select text*/
 }
 
+/*-----2.13 Toggle to activate animations for overlay-----*/
 [data-overlay-active="true"]{
 	animation-name: overlay-appear;
 	animation-duration: 200ms;
 	animation-fill-mode: forwards;
-	pointer-events: all !important;
+	pointer-events: all !important; /*To be unable to click and select text*/
 }
 
 [data-overlay-active="false"]{
@@ -219,6 +227,132 @@ nav{
 	animation-duration: 200ms;
 	animation-fill-mode: forwards;
 	pointer-events: none;
+}
+
+
+/*For desktops*/
+@media screen and (min-width: 1200px){
+
+	.logo-navbtn-cont{
+		pointer-events: none;
+	}
+
+	.o-close-nav-btn{
+		display: none;
+	}
+
+	nav{
+		position: absolute;
+		z-index: 4;
+		background-color: white;
+		width: 100%;
+		height: auto;
+		padding-top: 0;
+
+		top: clamp(-1.2vh, -1.5vh, -2vh);
+		right: 0;
+	}
+
+	.nav__options{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		width: 100%
+	}
+
+	.nav__option{
+
+		color: var(--mediumGray);
+
+		transition: all 150ms;
+
+		cursor: pointer;
+	}
+
+	.nav__option:nth-child(1){
+		margin-left: 10%;
+	}
+
+	.nav__option:hover{
+		color: var(--almostBlack)
+	}
+
+	.nav__link{
+		display: inline-block;
+
+		color: var(--mediumGray);
+
+		transition: all 150ms;
+	}
+
+	.nav__link:hover{
+		color: var(--almostBlack)
+	}
+
+	.nav__option--log{
+		margin-right: -42%;
+	}
+
+	.nav__option--regist{
+		margin-right: 0;
+	}
+
+	.nav__link--regist{
+		padding: 0.5em 1.5em;
+		border: 1px solid var(--mediumGray);
+
+		border-radius: 15px;
+	}
+
+	.nav__link--regist:hover{
+		border-color: var(--almostBlack);
+	}
+
+	.nav__link--log{
+		padding: 0;
+	}
+
+	.dropdown{
+		padding: 0.8em 1em;
+
+		top: 80%;
+
+		border-radius: 20px;
+		box-shadow: 0 15px 40px rgba(0,0,0,.30);
+	}
+	.dropdown--1{
+		transform: translateX(-40%);
+	}
+	.dropdown--2{
+		transform: translateX(-25%);
+	}
+
+	.drop__link{
+
+		color: var(--mediumGray);
+
+		transition: all 150ms;
+	}
+		
+	.drop__link:hover{
+		color: var(--almostBlack)
+	}
+
+	[data-drop-active="true"]{
+		animation-name: open-drop-desktop;
+		animation-duration: 200ms;
+		animation-fill-mode: forwards;
+		pointer-events: auto;
+	}
+
+	[data-drop-active="false"]{
+		animation-name: close-drop-desktop;
+		animation-duration: 200ms;
+		animation-fill-mode: forwards;
+		pointer-events: none;
+	}
+
 }
 
 @keyframes open-nav{
@@ -273,6 +407,24 @@ nav{
 	}
 	to{
 		position: absolute;
+		opacity: 0;
+	}
+}
+
+@keyframes open-drop-desktop{
+	from{
+
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+@keyframes close-drop-desktop{
+	from{
+		opacity: 1;
+	}
+	to{
 		opacity: 0;
 	}
 }
