@@ -16,24 +16,32 @@ First mobile design
 		6. Media queries
 */
 
-/*1.Root and universal selector*/
+/*1.Root, universal selector and tags*/
 :root{
 	--almostWhite: hsl(0, 0%, 98%);
 	--mediumGray: hsl(0, 0%, 41%);
 	--almostBlack: hsl(0, 0%, 8%);
 
-	--fontSizeLinks: 1rem;
+	--fontSizeParagraphs: 1.125rem;
+	--fontFamily: 'Barlow Semi Condensed', sans-serif;
 }
 
 *{
 	box-sizing: border-box;
+
 	padding: 0;
 	margin: 0;
 	max-width: 100%;
+
 	list-style: none;
 	text-decoration: none;
+	font-family: var(--fontFamily);
+	font-size: var(--fontSizeParagraphs);
 }
-/*1.Root and universal selector END*/
+
+
+/*1.Root, universal selector and tags END*/
+
 
 /*2.Header(Navigation bar and logo)*/
 
@@ -45,7 +53,7 @@ First mobile design
 	position: relative;
 	z-index: 5;
 
-	padding: clamp(0.8em, calc(0.8em + 1vw), 2em);
+	padding: 1em;
 }
 
 .logo{
@@ -89,13 +97,13 @@ nav{
 	display: flex;
 	flex-direction: column;
 
-	padding: clamp(0.5em, calc(0.5em + 1vw), 1.1em);
+	padding: 0.8em;
 }
 
 /*-----2.5 Navigation li from nav__options ul-----*/
 .nav__option{
 
-	margin: clamp(0.2em, calc(0.3em + 1vw), 0.8em);
+	margin: 0.5em;
 
 	color: var(--mediumGray);
 
@@ -184,12 +192,16 @@ nav{
 	pointer-events: none;
 }
 
+.drop__item{
+
+}
+
 /*-----2.11 <a> tag inside of drop__item li-----*/
 .drop__link{
 	display: inline-block;
 	
 	margin-top: 0.1em;
-	padding: clamp(0.2em, calc(0.2em + 1vw), 0.5em);
+	padding: 0.4em;
 
 	color: var(--mediumGray);
 
@@ -230,6 +242,72 @@ nav{
 }
 
 
+/*3. Hero section*/
+.hero{
+	display: flex;
+	flex-direction: column;
+}
+
+.hero__content{
+	padding: 0.5em;
+
+	text-align: center;
+	order: 2;
+}
+
+.hero__title{
+	font-size: clamp(2rem, 8vw, 6rem);
+	margin: 0.35em auto;
+}
+
+.hero__description{
+	max-width: 25rem;
+	margin: 0.35em auto;
+
+	color: var(--mediumGray);
+}
+
+.hero__btn{
+	display: inline-block;
+
+	margin: 0.35em auto;
+	padding: 0.5em 1.5em;
+	background-color: black;
+	border: 1px solid black;
+
+	color: white;
+
+	transition: all 150ms;
+
+	border-radius: 15px;
+}
+
+.hero__btn:hover{
+	background-color: white;
+
+	color: black;
+}
+
+.hero__sponsors{
+	display: flex;
+	justify-content: space-around;
+
+	margin: 0.35em auto;
+}
+
+.sponsors__img{
+	width: clamp(3.3rem, 20%, 7rem);
+}
+
+.hero__img{
+	order: 1;
+}
+
+.hero__img--2{
+	display: none;
+}
+
+
 /*For desktops*/
 @media screen and (min-width: 1200px){
 
@@ -249,7 +327,7 @@ nav{
 		height: auto;
 		padding-top: 0;
 
-		top: clamp(-1.2vh, -1.5vh, -2vh);
+		top: -0.25em;
 		right: 0;
 	}
 
@@ -258,7 +336,8 @@ nav{
 		flex-direction: row;
 		align-items: center;
 
-		width: 100%
+		width: 100%;
+		padding: 0;
 	}
 
 	.nav__option{
@@ -291,11 +370,11 @@ nav{
 	}
 
 	.nav__option--log{
-		margin-right: -42%;
+		margin-right: -44%;
 	}
 
 	.nav__option--regist{
-		margin-right: 0;
+		margin-right: 0.5em;
 	}
 
 	.nav__link--regist{
@@ -329,14 +408,13 @@ nav{
 	}
 
 	.drop__link{
-
 		color: var(--mediumGray);
 
 		transition: all 150ms;
 	}
 		
 	.drop__link:hover{
-		color: var(--almostBlack)
+		color: var(--almostBlack);
 	}
 
 	[data-drop-active="true"]{
@@ -351,8 +429,33 @@ nav{
 		animation-duration: 200ms;
 		animation-fill-mode: forwards;
 		pointer-events: none;
+	}	
+
+	.hero{
+		flex-direction: row;
 	}
 
+	.hero__content{
+		order: 1;	
+
+		width: 50%;
+		margin-left: 0.4em; 
+
+		text-align: left;
+	}
+
+	.hero__img{
+		order: 2;
+	}
+
+	.hero__img--1{
+		display: none;
+	}
+	
+	.hero__img--2{
+		width: 50%;
+		display: block;
+	}
 }
 
 @keyframes open-nav{

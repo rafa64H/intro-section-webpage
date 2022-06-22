@@ -58,6 +58,7 @@ OpenOrCloseDropdown.forEach(elementsWithDropdownClasses => {
 
 	elementsWithDropdownClasses.addEventListener('click', (e) => {
 		makeDropMenuAppear(e);
+		console.log(e.target)
 	})
 })
 
@@ -148,7 +149,7 @@ function makeDropMenuAppear(e){
 
 					dropdowns[0].dataset.dropActive = 'false'
 
-					OpenOrCloseDropdownArrowIcon[0].dataset.dropArrowActive = 'false'
+					OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'false'
 
 				}
 
