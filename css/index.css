@@ -264,6 +264,7 @@ nav{
 	max-width: 25rem;
 	margin: 0.35em auto;
 
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
 	color: var(--mediumGray);
 }
 
@@ -276,6 +277,8 @@ nav{
 	border: 1px solid black;
 
 	color: white;
+	text-align: center;
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
 
 	transition: all 150ms;
 
@@ -296,7 +299,7 @@ nav{
 }
 
 .sponsors__img{
-	width: clamp(3.3rem, 20%, 7rem);
+	width: clamp(3.3rem, 20%, 6rem);
 }
 
 .hero__img{
@@ -433,27 +436,75 @@ nav{
 
 	.hero{
 		flex-direction: row;
+		justify-content: space-around;
+
+		margin: 0 auto;
 	}
 
 	.hero__content{
-		order: 1;	
-
-		width: 50%;
-		margin-left: 0.4em; 
-
 		text-align: left;
+		order: 1;
+
+		padding: 2em;
+		width: 50%;
+	}
+
+	.hero__title{
+		font-size: clamp(2rem, 8vw, 6rem);
+		margin: 0;
+	}
+
+	.hero__description{
+		max-width: 25rem;
+		margin: 3em 0;
+
+		color: var(--mediumGray);
+	}
+
+	.hero__btn{
+		display: inline-block;
+
+		margin: 0;
+		padding: 0.5em 1.5em;
+		background-color: black;
+		border: 1px solid black;
+
+		color: white;
+
+		transition: all 150ms;
+
+		border-radius: 15px;
+	}
+
+	.hero__btn:hover{
+		background-color: white;
+
+		color: black;
+	}
+
+	.hero__sponsors{
+		display: flex;
+		justify-content: space-around;
+
+		margin-top: 22%;
+	}
+
+	.sponsors__img{
+
 	}
 
 	.hero__img{
 		order: 2;
+
+		width: 45%;
+		height: 75%;
 	}
 
 	.hero__img--1{
 		display: none;
 	}
-	
+
 	.hero__img--2{
-		width: 50%;
 		display: block;
 	}
 }
