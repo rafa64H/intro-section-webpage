@@ -1,12 +1,9 @@
 let buttonOpenCloseNav = document.querySelector('.o-close-nav-btn')
-
 let navigationBar = document.querySelector('nav')
 
 
 let OpenOrCloseDropdown = document.querySelectorAll('.open-close-dropdown')
-
 let OpenOrCloseDropdownArrowIcons = document.querySelectorAll('.drop-arrow')
-
 let dropdowns = document.querySelectorAll('.dropdown')
 
 
@@ -20,33 +17,24 @@ buttonOpenCloseNav.addEventListener('click', () => {
 		case 'true':
 
 			navigationBar.dataset.navToggleStatus = 'false'
-
 			overlay.dataset.overlayActive = 'false'
-
 			buttonOpenCloseNav.src="images/icon-menu.svg"
-
 			break
 
 
 		case 'false':
 
 			navigationBar.dataset.navToggleStatus = 'true'
-
 			overlay.dataset.overlayActive = 'true'
-
 			buttonOpenCloseNav.src="images/icon-close-menu.svg"
-
 			break
 
 
-		default: /*For the beginning value (to open)*/
+		default: //For the beginning empty value (to open)
 
 			navigationBar.dataset.navToggleStatus = 'true'
-
 			overlay.dataset.overlayActive = 'true'
-
 			buttonOpenCloseNav.src="images/icon-close-menu.svg"
-
 			break
 
 	}
@@ -57,8 +45,9 @@ buttonOpenCloseNav.addEventListener('click', () => {
 OpenOrCloseDropdown.forEach(elementsWithDropdownClasses => {
 
 	elementsWithDropdownClasses.addEventListener('click', (e) => {
+
 		makeDropMenuAppear(e);
-		console.log(e.target)
+
 	})
 })
 
@@ -71,9 +60,7 @@ function makeDropMenuAppear(e){
 			case 'true':
 
 				dropdowns[0].dataset.dropActive = 'false'
-
 				OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'false'
-
 				break;
 
 
@@ -82,32 +69,26 @@ function makeDropMenuAppear(e){
 				if(dropdowns[1].dataset.dropActive === 'true'){
 
 					dropdowns[1].dataset.dropActive = 'false'
-
 					OpenOrCloseDropdownArrowIcons[1].dataset.dropArrowActive = 'false'
 
 				}
 
 				dropdowns[0].dataset.dropActive = 'true'
-
 				OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'true'
-
 				break;
 
 
-			default: /*For the beginning value (to open)*/
+			default: //For the beginning empty value (to open)
 
 				if(dropdowns[1].dataset.dropActive === 'true'){
 
 					dropdowns[1].dataset.dropActive = 'false'
-
 					OpenOrCloseDropdownArrowIcons[1].dataset.dropArrowActive = 'false'
 
 				}
 
 				dropdowns[0].dataset.dropActive = 'true'
-
 				OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'true'
-
 				break;
 
 		}
@@ -120,9 +101,7 @@ function makeDropMenuAppear(e){
 			case 'true':
 
 				dropdowns[1].dataset.dropActive = 'false'
-
 				OpenOrCloseDropdownArrowIcons[1].dataset.dropArrowActive = 'false'
-
 				break;
 
 
@@ -131,32 +110,26 @@ function makeDropMenuAppear(e){
 				if(dropdowns[0].dataset.dropActive === 'true'){
 
 					dropdowns[0].dataset.dropActive = 'false'
-
 					OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'false'
 
 				}
 
 				dropdowns[1].dataset.dropActive = 'true'
-
 				OpenOrCloseDropdownArrowIcons[1].dataset.dropArrowActive = 'true'
-
 				break;
 
 
-			default: /*For the beginning value (to open)*/
+			default: //For the beginning empty value (to open)
 
 				if(dropdowns[0].dataset.dropActive === 'true'){
 
 					dropdowns[0].dataset.dropActive = 'false'
-
 					OpenOrCloseDropdownArrowIcons[0].dataset.dropArrowActive = 'false'
 
 				}
 
 				dropdowns[1].dataset.dropActive = 'true'
-
 				OpenOrCloseDropdownArrowIcons[1].dataset.dropArrowActive = 'true'
-
 				break;
 
 		}
